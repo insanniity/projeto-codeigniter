@@ -1,0 +1,61 @@
+/* app.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #28251E;
+    color: white;
+}
+
+.nav-link {
+    color: #FFA54C;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #FFC926;
+    text-decoration: underline;
+}
+
+.bg-color-02 {
+    background-color: #2F2B24;
+}
+
+.btn-products {
+    background: linear-gradient(to bottom, #FFDB04, #FFA100);
+    color: black;
+    padding: 10px 50px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-products:hover {
+    background: linear-gradient(to bottom, #fff6c3, #ffc96c);
+}
+
+.product-box {
+    background-color: #2F2B24;
+    border-radius: 25px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.product-text-color {
+    color: #FFC926;
+}
+
+.where-we-are-title {
+    color: #FFC926;
+    font-size: 3em;
+}
+
+.where-we-are-subtitle{
+    color: #FFC926;
+    font-size: 2em;
+}
