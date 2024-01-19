@@ -11,3 +11,7 @@ $routes->get('/products', 'Main::products');
 $routes->get('/where', 'Main::where');
 
 $routes->get('/login', 'Auth::index');
+
+
+$routes->get('/painel', 'Dashboard::index');
+

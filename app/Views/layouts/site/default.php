@@ -15,9 +15,9 @@
 </head>
 
 <body>
-    <?= $this->include('layouts/navbar') ?>
+    <?= $this->include('layouts/site/navbar') ?>
     <?= $this->renderSection('content') ?>
-    <?= $this->include('layouts/footer') ?>
+    <?= $this->include('layouts/site/footer') ?>
     <!-- bootstrap -->
     <script src="<?= base_url('assets/bootstrap/bootstrap.bundle.min.js') ?>"></script>
 </body>
