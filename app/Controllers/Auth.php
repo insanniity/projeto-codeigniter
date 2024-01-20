@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Entities\User;
 use App\Models\UserModel;
+use App\Models\RestaurantModel;
 
 class Auth extends BaseController
 {   
@@ -19,7 +20,14 @@ class Auth extends BaseController
     
     public function login()
     {   
+        $restaurantModel = new RestaurantModel();
+
+        $restaurants = $restaurantModel->select('restaurant_id, name')->findAll();
+
+        // print_r($restaurants);
+
         $data = [];
+        $data['restaurants'] = $restaurants;
 
         $errors = session()->getFlashdata('errors');
         if($errors){
@@ -49,6 +57,13 @@ class Auth extends BaseController
                 'errors' => [
                     'required' => 'O campo senha é obrigatório.'
                 ]
+            ],
+            'select_restaurant' => [
+                'label' => 'Restaurante',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'O campo restaurante é obrigatório.'
+                ]
             ]
         ]);
 
@@ -59,22 +74,20 @@ class Auth extends BaseController
 
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
-        $result = $this->userModel->check_for_login($username, $password);
+        $restaurant_id = Decrypt($this->request->getPost('select_restaurant'));
+        
+
+        $result = $this->userModel->check_for_login($username, $password, $restaurant_id);
 
         if(!$result){
             return redirect()->back()->withInput()->with('errors', ['Usuário ou senha inválidos.']);
         }
+        $restaurantModel = new RestaurantModel();
+        $restaurant = $restaurantModel->find($restaurant_id);
 
         $dados_sessao = [
-            'user_id' => $result->user_id,
-            'username' => $result->username,
-            'name' => $result->name,
-            'email' => $result->email,
-            'phone' => $result->phone,
-            'active' => $result->active,
-            'created_at' => $result->created_at,
-            'updated_at' => $result->updated_at,
-            'deleted_at' => $result->deleted_at,
+            'user' => $result,
+            'restaurant' => $restaurant,
             'logged_in' => true
         ];
 

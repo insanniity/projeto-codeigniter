@@ -6,8 +6,8 @@
      </div>
 
      <div>
-         <i class="fa-solid fa-user me-2"></i>username@email.com
+         <i class="fa-solid fa-user me-2"></i> <?= session()->user->name ?>
          <i class="fa-solid fa-ellipsis-vertical mx-2"></i>
-         <a href="#"><i class="fa-solid fa-right-from-bracket me-2"></i>Sair</a>
+         <a href="<?= site_url("/logout") ?>"><i class="fa-solid fa-right-from-bracket me-2"></i>Sair</a>
      </div>
  </header>

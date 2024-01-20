@@ -15,6 +15,10 @@ class CreateUserTable extends Migration
                 'constraint' => 11,
                 'auto_increment' => TRUE
             ],
+            'restaurant_id' => [
+                'type' => 'INT',
+                'constraint' => 11,
+            ],
             'username' => [
                 'type' => 'VARCHAR',
                 'constraint' => 50,
@@ -27,12 +31,21 @@ class CreateUserTable extends Migration
             ],
             'name' => [
                 'type' => 'VARCHAR',
-                'constraint' => 50,
+                'constraint' => 100,
                 'null' => TRUE
             ],
             'email' => [
                 'type' => 'VARCHAR',
-                'constraint' => 50,
+                'constraint' => 100,
+                'null' => TRUE
+            ],
+            'roles' => [
+                'type' => 'VARCHAR',
+                'constraint' => 500,
+                'null' => TRUE
+            ],
+            'blocked_until' => [
+                'type' => 'DATETIME',
                 'null' => TRUE
             ],
             'phone' => [
@@ -43,6 +56,15 @@ class CreateUserTable extends Migration
             'active' => [
                 'type' => 'INT',
                 'constraint' => 1,
+                'null' => TRUE
+            ],
+            'code' => [
+                'type' => 'VARCHAR',
+                'constraint' => 20,
+                'null' => TRUE
+            ],
+            'last_login' => [
+                'type' => 'DATETIME',
                 'null' => TRUE
             ],
             'created_at' => [

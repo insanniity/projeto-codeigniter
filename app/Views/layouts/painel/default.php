@@ -20,10 +20,7 @@
     <?= $this->include('layouts/painel/navbar') ?>
     <!-- main -->
     <section class="d-flex">
-        
         <?= $this->include('layouts/painel/menu') ?>
-        
-
         <?= $this->renderSection('content') ?>
     </section>
     <?= $this->include('layouts/painel/footer') ?>

@@ -9,17 +9,17 @@
 
 
     <?= form_open('login_submit', ['novalidate' => true]) ?>
-    <!-- <div class="mb-3">
-        <p class="mb-2">Restaurante</p>
-        <select name="select-restaurant" id="select-restaurant" class="form-select">
-            <option value=""></option>
-            <option value="">Restaurante 1</option>
-            <option value="">Restaurante 2</option>
-            <option value="">Restaurante 3</option>
-        </select>
-    </div> -->
 
-    <!-- <hr> -->
+    <div class="mb-3">
+        <select name="select_restaurant" id="select-restaurant" class="form-select" >
+            <option value="" <?= (empty(old("select_restaurant"))) ? "selected" : "" ?>>Selecione o restaurante</option>
+            <?php foreach ($restaurants as $restaurant) : ?>
+                <option value="<?= Encrypt($restaurant->restaurant_id)  ?>" <?= ($restaurant->restaurant_id == Decrypt(old('select_restaurant'))) ? "selected" : '' ?> ><?= $restaurant->name ?></option>
+            <?php endforeach; ?>    
+        </select>
+    </div>
+
+    <hr>
 
     <div class="mb-3">
         <input class="form-control" type="text" id="text-username" name="username" placeholder="Usuário" value="<?= old('username') ?>">
@@ -33,12 +33,7 @@
     <?= form_close() ?>
 
     <?php if (isset($errors)) : ?>
-        <?php foreach ($errors as $error) : ?>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <?= $error ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <?php endforeach; ?>
+        <?= DisplayError($errors) ?>
     <?php endif; ?>
 
 
