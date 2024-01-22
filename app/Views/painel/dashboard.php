@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 
 <!-- content -->
- <div class="content p-4">
+
 
      <div class="content-box">
          <p class="content-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, laboriosam!
@@ -81,6 +81,6 @@
              </div>
          </div>
      </div>
- </div>
+
 
  <?= $this->endSection() ?>

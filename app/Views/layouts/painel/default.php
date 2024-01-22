@@ -21,7 +21,9 @@
     <!-- main -->
     <section class="d-flex">
         <?= $this->include('layouts/painel/menu') ?>
-        <?= $this->renderSection('content') ?>
+        <div class="content p-4 w-100">
+            <?= $this->renderSection('content') ?>
+        </div>
     </section>
     <?= $this->include('layouts/painel/footer') ?>
     <!-- bootstrap -->

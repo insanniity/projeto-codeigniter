@@ -11,7 +11,7 @@ class ClientModel extends Model
     protected $primaryKey       = 'client_id';
     protected $useAutoIncrement = true;
     protected $returnType       = Client::class;
-    protected $useSoftDeletes   = false;
+    protected $useSoftDeletes   = true;
     protected $protectFields    = true;
     protected $allowedFields    = [
                                     'client_id',

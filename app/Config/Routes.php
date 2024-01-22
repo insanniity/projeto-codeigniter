@@ -19,3 +19,6 @@ $routes->get('/painel', 'Dashboard::index');
 
 $routes->get('/painel/usuarios', 'User::index');
 
+$routes->get('/painel/produtos', 'Product::index');
+$routes->get('/painel/produtos/create', 'Product::create');
+
