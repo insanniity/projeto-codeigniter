@@ -6,7 +6,7 @@
     <?php if (isset($errors)) : ?>
         <?= DisplayError($errors) ?>
     <?php endif; ?>
-    <?= form_open_multipart('/products/new_submit', ['novalidate' => true]) ?>
+    <?= form_open_multipart('/products/create_submit', ['novalidate' => true]) ?>
 
     <div class="row">
 
