@@ -179,6 +179,31 @@ class Product extends BaseController
 
     }
 
+
+    public function edit($id)
+    {
+        $data = [
+            'title' => 'Product',
+        ];
+
+        $id = Decrypt($id);
+        if(!$id){
+            return redirect()->to('/painel/produtos');
+        }
+
+        $data['errors'] = session()->getFlashdata('errors');       
+
+        $data['product'] = $this->productModel
+            ->where('id', $id)
+            ->first();
+
+        return view('painel/products/edit', $data);
+    }
+
     
+    public function edit_submit($id) {
+        $id = Decrypt($id);
+        
+    }
 
 }

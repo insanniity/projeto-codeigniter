@@ -24,9 +24,9 @@ $routes->get('/painel/produtos/create', 'Product::create');
 $routes->post('/painel/produtos/create_submit', 'Product::create_submit');
 
 $routes->get('/painel/produtos/edit/(:alphanum)', 'Product::edit/$1');
-$routes->post('/painel/produtos/edit_submit', 'Product::edit_submit');
+$routes->post('/painel/produtos/edit_submit/(:alphanum)', 'Product::edit_submit/$1');
 
 $routes->get('/painel/produtos/delete/(:alphanum)', 'Product::delete/$1');
 $routes->get('/painel/produtos/delete_confirm/(:alphanum)', 'Product::delete_submit/$1');
 
-$routes->get('/stocks/produtos/(:alphanum)', 'Stocks::product_stock/$1');
+$routes->get('/stocks/produtos/(:alphanum)', 'Stocks::stock/$1');
