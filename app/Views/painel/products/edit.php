@@ -56,7 +56,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="mb-3">
                         <label for="price" class="form-label">Preço</label>
-                        <input type="text" name="text_price" id="text_price" class="form-control" placeholder="Preço" value="<?= old('text_price') ?>">
+                        <input type="text" name="text_price" id="text_price" class="form-control" placeholder="Preço" value="<?= old('text_price', preg_replace("/\./", ",", $product->price)) ?>">
                         
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="col-lg-6 col-12 mb-3">
                     <label for="promotion" class="form-label">Promoção</label>
-                    <input type="text" name="text_promotion" id="text_promotion" class="form-control" placeholder="Promoção" value="<?= old('text_promotion') ?>">
+                    <input type="text" name="text_promotion" id="text_promotion" class="form-control" placeholder="Promoção" value="<?= old('text_promotion', intval($product->promotion)) ?>">
                    
                 </div>
             </div>
